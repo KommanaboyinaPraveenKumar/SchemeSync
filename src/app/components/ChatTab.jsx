@@ -65,7 +65,7 @@ export default function ChatTab() {
 
           {/* Chat messages */}
           {chat.map((msg, i) => (
-            <div key={i} className={`flex mb-1 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div key={i} className={flex mb-1 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}}>
               {msg.sender === 'bot' && (
                 <div className="p-1 mr-1 bg-[#0098D8]/15 rounded-full">
                   <MessageCircle className="w-5 h-5 text-[#0098D8]" />
