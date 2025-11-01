@@ -2,32 +2,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a2a5a; /* Deep background blue */
-  min-height: 100vh;
+  background-color: #EAF6FB; /* Light blue background from palette */
+  min-height: 90vh;
+  font-family: "Inter", sans-serif;
 }
 
 .profile-form {
-  background: #2e3f70; /* Muted blue form */
+  background: #FFFFFF; /* Clean white card */
   padding: 2rem 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  box-shadow: 0px 6px 20px rgba(0, 116, 216, 0.25);
   width: 100%;
   max-width: 650px;
-  font-family: "Inter", sans-serif;
-  color: #f4ede4; /* Light text for contrast */
+  color: #043042; /* Deep blue text */
+  border: 1px solid #B3E6FA; /* Subtle border accent */
 }
 
 /* Header */
 .profile-form h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 0.3rem;
-  color: #f79d65; /* Vibrant orange highlight */
+  /* margin-bottom: 0.4rem; */
+  color: #0074D8; /* Primary brand blue */
   text-align: center;
 }
 
 .profile-form p {
-  color: #c6c6c6;
+  color: #4A6374; /* Muted cool grey-blue */
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -44,19 +45,18 @@
 .form-grid select {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #c6c6c6;
-  border-radius: 8px;
+  border: 1px solid #B3E6FA;
+  border-radius: 10px;
   font-size: 0.95rem;
-  outline: none;
-  color: #f4ede4;
-  background-color: rgba(255, 255, 255, 0.05);
+  color: #043042;
+  background-color: rgba(179, 230, 250, 0.1);
   transition: border 0.2s ease-in-out, background 0.3s;
 }
 
 .form-grid input:focus,
 .form-grid select:focus {
-  border-color: #f79d65;
-  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #0074D8;
+  background-color: rgba(179, 230, 250, 0.25);
 }
 
 /* Checkboxes */
@@ -69,7 +69,7 @@
 
 .checkboxes label {
   font-size: 0.95rem;
-  color: #f4ede4;
+  color: #043042;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -87,7 +87,7 @@
 .save-btn {
   border: none;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 8px;
   padding: 10px 20px;
   cursor: pointer;
@@ -96,22 +96,24 @@
 
 /* Skip Button */
 .skip-btn {
-  background-color: #f4ede4;
-  color: #1a2a5a;
+  background-color: #FFFFFF;
+  color: #0074D8;
+  border: 1px solid #B3E6FA;
 }
 
 .skip-btn:hover {
-  background-color: #e7dfd5;
+  background-color: #EAF6FB;
   transform: scale(1.03);
 }
 
 /* Save Button */
 .save-btn {
-  background-color: #f79d65;
-  color: #1a2a5a;
+  background-color: #0074D8;
+  color: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(0, 116, 216, 0.3);
 }
 
 .save-btn:hover {
-  background-color: #f58a43;
+  background-color: #043042;
   transform: scale(1.03);
 }

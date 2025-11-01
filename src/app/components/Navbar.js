@@ -3,14 +3,14 @@ import { MessageCircle, Bell, User, Search } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab }) {
   return (
-    <nav className="flex items-center justify-around py-3 border-t border-[#2E3F70] bg-[#1A2A5A] shadow-lg">
+    <nav className="flex items-center justify-around py-3 border-t border-[#0074d8] bg-[#0074d8] shadow-lg" style={{ opacity: 0.5}}>
       {/* Chat Tab */}
       <button
         onClick={() => setActiveTab('chat')}
         className={`flex flex-col items-center transition-transform duration-200 ${
           activeTab === 'chat'
-            ? 'text-[#F79D65] scale-110'
-            : 'text-[#C6C6C6] hover:text-[#F4EDE4]'
+            ? 'text-[#FFFFFF] scale-125'
+            : 'text-[#FFFFFF] hover:text-[#043042]'
         }`}
       >
         <MessageCircle className="w-6 h-6" />
@@ -22,8 +22,8 @@ export default function Navbar({ activeTab, setActiveTab }) {
         onClick={() => setActiveTab('profile')}
         className={`flex flex-col items-center transition-transform duration-200 ${
           activeTab === 'profile'
-            ? 'text-[#F79D65] scale-110'
-            : 'text-[#C6C6C6] hover:text-[#F4EDE4]'
+           ? 'text-[#FFFFFF] scale-125'
+           : 'text-[#FFFFFF] hover:text-[#043042]'
         }`}
       >
         <User className="w-6 h-6" />
@@ -35,8 +35,8 @@ export default function Navbar({ activeTab, setActiveTab }) {
         onClick={() => setActiveTab('notifications')}
         className={`flex flex-col items-center transition-transform duration-200 ${
           activeTab === 'notifications'
-            ? 'text-[#F79D65] scale-110'
-            : 'text-[#C6C6C6] hover:text-[#F4EDE4]'
+            ? 'text-[#FFFFFF] scale-125'
+            : 'text-[#FFFFFF] hover:text-[#043042]'
         }`}
       >
         <Bell className="w-6 h-6" />
@@ -48,8 +48,8 @@ export default function Navbar({ activeTab, setActiveTab }) {
         onClick={() => setActiveTab('search')}
         className={`flex flex-col items-center transition-transform duration-200 ${
           activeTab === 'search'
-            ? 'text-[#F79D65] scale-110'
-            : 'text-[#C6C6C6] hover:text-[#F4EDE4]'
+            ? 'text-[#FFFFFF] scale-125'
+            : 'text-[#FFFFFF] hover:text-[#043042]'
         }`}
       >
         <Search className="w-6 h-6" />
