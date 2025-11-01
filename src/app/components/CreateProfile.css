@@ -1,0 +1,117 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a2a5a; /* Deep background blue */
+  min-height: 100vh;
+}
+
+.profile-form {
+  background: #2e3f70; /* Muted blue form */
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 650px;
+  font-family: "Inter", sans-serif;
+  color: #f4ede4; /* Light text for contrast */
+}
+
+/* Header */
+.profile-form h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: #f79d65; /* Vibrant orange highlight */
+  text-align: center;
+}
+
+.profile-form p {
+  color: #c6c6c6;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Grid layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.2rem;
+}
+
+.form-grid input,
+.form-grid select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #c6c6c6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  color: #f4ede4;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: border 0.2s ease-in-out, background 0.3s;
+}
+
+.form-grid input:focus,
+.form-grid select:focus {
+  border-color: #f79d65;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Checkboxes */
+.checkboxes {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.checkboxes label {
+  font-size: 0.95rem;
+  color: #f4ede4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.form-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skip-btn,
+.save-btn {
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Skip Button */
+.skip-btn {
+  background-color: #f4ede4;
+  color: #1a2a5a;
+}
+
+.skip-btn:hover {
+  background-color: #e7dfd5;
+  transform: scale(1.03);
+}
+
+/* Save Button */
+.save-btn {
+  background-color: #f79d65;
+  color: #1a2a5a;
+}
+
+.save-btn:hover {
+  background-color: #f58a43;
+  transform: scale(1.03);
+}
