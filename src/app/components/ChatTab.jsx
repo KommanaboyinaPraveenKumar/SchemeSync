@@ -1,11 +1,13 @@
 'use client';
 import { useRef, useState, useEffect } from 'react';
 import { MessageCircle, Mic, Send } from 'lucide-react';
+import languages from '../locales/languages.json';
 
-export default function ChatTab() {
+export default function ChatTab({ language = 'en' }) {
   const scrollRef = useRef(null);
   const [message, setMessage] = useState('');
   const [chat, setChat] = useState([]);
+  const t = languages[language].chat;
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -19,7 +21,7 @@ export default function ChatTab() {
     setTimeout(() => {
       setChat((prev) => [
         ...prev,
-        { text: 'I’m looking up the scheme for you…', sender: 'bot' },
+        { text: t.botReply, sender: 'bot' },
       ]);
     }, 800);
     setMessage('');
@@ -34,19 +36,10 @@ export default function ChatTab() {
         <div className="flex items-center justify-between px-3 py-1 border-b border-[#B3E6FA]/60 bg-white/70 backdrop-blur-md sticky top-0 z-10 rounded-t-2xl">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-[#00C853] rounded-full"></div>
-            <span className="text-base font-medium text-gray-800">BharatGPT is online</span>
+            <span className="text-base font-medium text-gray-800">{t.onlineStatus}</span>
           </div>
-          <select
-            className="text-sm border border-[#B3E6FA]/80 rounded-full px-2 py-0.5 focus:outline-none bg-transparent text-gray-800"
-            defaultValue="English"
-          >
-            <option>English</option>
-            <option>हिन्दी</option>
-            <option>తెలుగు</option>
-            <option>বাংলা</option>
-            <option>मराठी</option>
-            <option>தமிழ்</option>
-          </select>
+          {/* Language Selector */}
+          
         </div>
 
         {/* Messages */}
@@ -57,9 +50,7 @@ export default function ChatTab() {
               <MessageCircle className="w-5 h-5 text-[#0098D8]" />
             </div>
             <div className="max-w-sm px-3 py-1.5 bg-white/70 backdrop-blur-sm rounded-2xl border border-[#B3E6FA]/40 shadow-sm">
-              <p className="text-sm text-gray-800 leading-snug">
-                Hello! I’m BharatGPT — your guide for government schemes. Ask me anything!
-              </p>
+              <p className="text-sm text-gray-800 leading-snug">{t.intro}</p>
             </div>
           </div>
 
@@ -96,7 +87,7 @@ export default function ChatTab() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Ask about a government scheme..."
+              placeholder={t.placeholder}
               className="flex-1 px-3 py-3 text-base border border-[#B3E6FA]/70 rounded-full bg-white/80 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#0098D8]"
             />
 

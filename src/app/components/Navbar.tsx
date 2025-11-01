@@ -1,9 +1,21 @@
 'use client';
 import { MessageCircle, Bell, User, Search } from 'lucide-react';
+import languages from '../locales/languages.json';
 
-export default function Navbar({ activeTab, setActiveTab }) {
+interface NavbarProps {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+  language: 'en' | 'hi';
+}
+
+export default function Navbar({ activeTab, setActiveTab, language }: NavbarProps) {
+  const t = languages[language].navbar; // get navbar translations
+
   return (
-    <nav className="flex items-center justify-around py-3 border-t border-[#0074d8] bg-[#0074d8] shadow-lg" style={{ opacity: 0.5}}>
+    <nav
+      className="flex items-center justify-around py-3 border-t border-[#0074d8] bg-[#0074d8] shadow-lg"
+      style={{ opacity: 0.5 }}
+    >
       {/* Chat Tab */}
       <button
         onClick={() => setActiveTab('chat')}
@@ -14,7 +26,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
         }`}
       >
         <MessageCircle className="w-6 h-6" />
-        <span className="text-xs mt-1">Chat</span>
+        <span className="text-xs mt-1">{t.chat}</span>
       </button>
 
       {/* Profile Tab */}
@@ -22,12 +34,12 @@ export default function Navbar({ activeTab, setActiveTab }) {
         onClick={() => setActiveTab('profile')}
         className={`flex flex-col items-center transition-transform duration-200 ${
           activeTab === 'profile'
-           ? 'text-[#FFFFFF] scale-125'
-           : 'text-[#FFFFFF] hover:text-[#043042]'
+            ? 'text-[#FFFFFF] scale-125'
+            : 'text-[#FFFFFF] hover:text-[#043042]'
         }`}
       >
         <User className="w-6 h-6" />
-        <span className="text-xs mt-1">Profile</span>
+        <span className="text-xs mt-1">{t.profile}</span>
       </button>
 
       {/* Notifications Tab */}
@@ -40,7 +52,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
         }`}
       >
         <Bell className="w-6 h-6" />
-        <span className="text-xs mt-1">Alerts</span>
+        <span className="text-xs mt-1">{t.alerts}</span>
       </button>
 
       {/* Search Tab */}
@@ -53,7 +65,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
         }`}
       >
         <Search className="w-6 h-6" />
-        <span className="text-xs mt-1">Search</span>
+        <span className="text-xs mt-1">{t.search}</span>
       </button>
     </nav>
   );

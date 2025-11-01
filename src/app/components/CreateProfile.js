@@ -1,8 +1,11 @@
-
+'use client';
 import React, { useState } from "react";
+import languages from "../locales/languages.json";
 import "./CreateProfile.css";
 
-const CreateProfile = () => {
+export default function CreateProfile({ language = "en" }) {
+  const t = languages[language].profile;
+
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -29,40 +32,40 @@ const CreateProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Profile Data:", formData);
-    alert("Profile Saved Successfully!");
+    alert(language === "en" ? "Profile Saved Successfully!" : "प्रोफ़ाइल सफलतापूर्वक सहेजी गई!");
   };
 
   return (
     <div className="profile-container">
       <form className="profile-form" onSubmit={handleSubmit}>
-        <h2>Create Your Profile</h2>
-        <p>Get personalized scheme recommendations</p>
+        <h2>{t.title}</h2>
+        <p>{t.subtitle}</p>
 
         <div className="form-grid">
           <input
             type="text"
             name="name"
-            placeholder="Your name"
+            placeholder={t.namePlaceholder}
             value={formData.name}
             onChange={handleChange}
           />
           <input
             type="number"
             name="age"
-            placeholder="Your age"
+            placeholder={t.agePlaceholder}
             value={formData.age}
             onChange={handleChange}
           />
 
           <select name="gender" value={formData.gender} onChange={handleChange}>
-            <option value="">Select Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
+            <option value="">{t.genderLabel}</option>
+            <option>{language === "en" ? "Male" : "पुरुष"}</option>
+            <option>{language === "en" ? "Female" : "महिला"}</option>
+            <option>{language === "en" ? "Other" : "अन्य"}</option>
           </select>
 
           <select name="state" value={formData.state} onChange={handleChange}>
-            <option value="">Select State</option>
+            <option value="">{t.stateLabel}</option>
             <option>Tamil Nadu</option>
             <option>Karnataka</option>
             <option>Andhra Pradesh</option>
@@ -74,7 +77,7 @@ const CreateProfile = () => {
           <input
             type="text"
             name="district"
-            placeholder="Your district"
+            placeholder={t.districtPlaceholder}
             value={formData.district}
             onChange={handleChange}
           />
@@ -84,18 +87,18 @@ const CreateProfile = () => {
             value={formData.occupation}
             onChange={handleChange}
           >
-            <option value="">Select Occupation</option>
-            <option>Student</option>
-            <option>Employed</option>
-            <option>Self-employed</option>
-            <option>Unemployed</option>
-            <option>Retired</option>
+            <option value="">{t.occupationLabel}</option>
+            <option>{language === "en" ? "Student" : "छात्र"}</option>
+            <option>{language === "en" ? "Employed" : "नियोजित"}</option>
+            <option>{language === "en" ? "Self-employed" : "स्व-नियोजित"}</option>
+            <option>{language === "en" ? "Unemployed" : "बेरोज़गार"}</option>
+            <option>{language === "en" ? "Retired" : "सेवानिवृत्त"}</option>
           </select>
 
           <input
             type="number"
             name="annualIncome"
-            placeholder="Annual income"
+            placeholder={t.annualIncome}
             value={formData.annualIncome}
             onChange={handleChange}
           />
@@ -105,11 +108,11 @@ const CreateProfile = () => {
             value={formData.educationLevel}
             onChange={handleChange}
           >
-            <option value="">Select Education Level</option>
-            <option>High School</option>
-            <option>Undergraduate</option>
-            <option>Postgraduate</option>
-            <option>Doctorate</option>
+            <option value="">{t.educationLabel}</option>
+            <option>{language === "en" ? "High School" : "हाई स्कूल"}</option>
+            <option>{language === "en" ? "Undergraduate" : "स्नातक"}</option>
+            <option>{language === "en" ? "Postgraduate" : "स्नातकोत्तर"}</option>
+            <option>{language === "en" ? "Doctorate" : "पीएचडी"}</option>
           </select>
 
           <select
@@ -117,17 +120,17 @@ const CreateProfile = () => {
             value={formData.casteCategory}
             onChange={handleChange}
           >
-            <option value="">Select Caste Category</option>
-            <option>General</option>
-            <option>OBC</option>
-            <option>SC</option>
-            <option>ST</option>
+            <option value="">{t.casteLabel}</option>
+            <option>{language === "en" ? "General" : "सामान्य"}</option>
+            <option>{language === "en" ? "OBC" : "ओबीसी"}</option>
+            <option>{language === "en" ? "SC" : "एससी"}</option>
+            <option>{language === "en" ? "ST" : "एसटी"}</option>
           </select>
 
           <input
             type="number"
             name="familySize"
-            placeholder="Number of members"
+            placeholder={t.familySize}
             value={formData.familySize}
             onChange={handleChange}
           />
@@ -141,7 +144,7 @@ const CreateProfile = () => {
               checked={formData.hasBPLCard}
               onChange={handleChange}
             />
-            Have BPL Card
+            {t.bplCard}
           </label>
 
           <label>
@@ -151,21 +154,19 @@ const CreateProfile = () => {
               checked={formData.hasDisability}
               onChange={handleChange}
             />
-            Have Disability
+            {t.disability}
           </label>
         </div>
 
         <div className="form-buttons">
           <button type="button" className="skip-btn">
-            Skip for now
+            {t.skip}
           </button>
           <button type="submit" className="save-btn">
-            Save Profile
+            {t.save}
           </button>
         </div>
       </form>
     </div>
   );
-};
-
-export default CreateProfile;
+}
