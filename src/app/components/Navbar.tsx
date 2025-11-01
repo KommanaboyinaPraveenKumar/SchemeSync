@@ -5,8 +5,22 @@ import languages from '../locales/languages.json';
 interface NavbarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
-  language: 'en' | 'hi';
+  language:
+    | 'en'
+    | 'hi'
+    | 'te'
+    | 'ta'
+    | 'ml'
+    | 'kn'
+    | 'mr'
+    | 'gu'
+    | 'bn'
+    | 'as'
+    | 'or'
+    | 'pa'
+    | 'ur';
 }
+
 
 export default function Navbar({ activeTab, setActiveTab, language }: NavbarProps) {
   const t = languages[language].navbar; // get navbar translations
